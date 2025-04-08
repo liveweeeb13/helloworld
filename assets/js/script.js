@@ -69,12 +69,20 @@ window.addEventListener('keydown', (event) => {
     modal.style.display = 'flex';
     newTextInput.value = h1.innerText; // Set input field with current text
   } else if (event.code === 'Escape' || event.code === 'Enter') {
-    modal.style.display = 'none'; // Close the modal on Escape or Enter
-    updateText(); // Update text and save to cookies
+    modal.style.display = 'none';
+    updateText(); 
   }
 });
 
-// Close modal when clicked outside
+closeModal.addEventListener("click", function () {
+  modal.style.display = 'none';
+  updateText(); 
+});
+
+// Disable clicking outside to close the modal
+// The following code is commented out to disable the "close on outside click" feature
+
+/*
 let isClickingOutside = false;
 window.addEventListener('mousedown', (event) => {
   if (!modal.contains(event.target)) {
@@ -85,23 +93,17 @@ window.addEventListener('mousedown', (event) => {
 window.addEventListener('mouseup', () => {
   if (isClickingOutside) {
     modal.style.display = 'none';
-    // Update text and save to cookies when modal is closed (outside click)
     updateText();
-    isClickingOutside = false; // Reset click flag
+    isClickingOutside = false; 
   }
 });
+*/
 
 // Update text and save to cookies
 function updateText() {
   h1.innerText = newTextInput.value;
   setCookie("words", h1.innerText, 365); // Save new text in cookies
 }
-
-// Close modal on clicking close button and update text
-closeModal.addEventListener("click", function () {
-  modal.style.display = 'none';
-  updateText(); // Update text when modal is closed using close button
-});
 
 // Reset to default values
 resetChanges.addEventListener('click', () => {
@@ -142,7 +144,9 @@ color4Input.addEventListener("input", function () {
   setCookie("color4", this.value, 365);
 });
 
+/*
 // Disable right-click menu 
 window.addEventListener('contextmenu', (event) => {
   event.preventDefault(); // This prevents the default right-click menu
 });
+*/
