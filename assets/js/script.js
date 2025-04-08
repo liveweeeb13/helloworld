@@ -44,6 +44,8 @@ function getCookie(name) {
 
 // Check if there's a saved word in cookies and apply it
 const savedText = getCookie("words");
+
+// Only set default "Press Space" text if no saved text exists in cookies
 if (savedText) {
   h1.innerText = savedText;
   h1.setAttribute("data-text", savedText);
