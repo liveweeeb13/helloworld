@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
   <!-- SEO Meta Tags -->
   <meta name="description" content="Just a simple Hello World page with interactive settings and color changes.">
   <meta name="keywords" content="Hello World, Web, Interactive, Settings, Color Change">
   <meta name="author" content="liveweeeb">
-
+  <meta name="generator" content="InovaPerf">
+  <meta name="theme-color" content="#0099ff">
+  <meta name="msapplication-TileColor" content="#5445db">
+  
   <!-- Open Graph Meta Tags for social media sharing -->
   <meta property="og:title" content="Just a simple Hello World">
   <meta property="og:description" content="A simple Hello World page with customizable settings.">
   <meta property="og:image" content="./assets/img/logo_full.png">
   <meta property="og:url" content="https://liveweeeb13.github.io/helloworld/">
   <meta property="og:type" content="website">
-
+  
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Just a simple Hello World">
@@ -26,16 +28,19 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="./assets/img/logo_full.png">
-
+  
+  <!-- Apple and MS application meta tags -->
+  <meta name="msapplication-TileImage" content="./assets/img/logo_full.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
+  
   <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/styles.css">
-
+  
   <title>Just a simple Hello World</title>
 </head>
-
 <body>
   <h1 id="title" data-text="HELLO WORLD"></h1>
 
@@ -46,7 +51,7 @@
       <h2>Settings Window</h2>
       <label for="newTextInput">Change Text:</label>
       <input type="text" id="newTextInput" placeholder="Enter new text..." />
-
+      
       <label for="color1Input">Change Color 1 (Gradient Start):</label>
       <div class="color-preview" id="color1Preview"></div>
       <input type="color" id="color1Input" value="#ff00cc" />
@@ -62,7 +67,7 @@
       <label for="color4Input">Change Color 4 (Gradient End):</label>
       <div class="color-preview" id="color4Preview"></div>
       <input type="color" id="color4Input" value="#00ffee" />
-
+      
       <button id="resetChanges">Reset</button>
     </div>
   </div>
