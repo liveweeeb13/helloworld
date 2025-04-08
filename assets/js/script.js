@@ -22,6 +22,7 @@ const defaultColors = {
   color4: "#00ffee"
 };
 
+// Set cookies
 function setCookie(name, value, days) {
   const d = new Date();
   d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -29,6 +30,7 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
+// Get cookies
 function getCookie(name) {
   let nameEQ = name + "=";
   let ca = document.cookie.split(';');
@@ -63,6 +65,7 @@ if (savedColors.color2) document.documentElement.style.setProperty('--color2', s
 if (savedColors.color3) document.documentElement.style.setProperty('--color3', savedColors.color3);
 if (savedColors.color4) document.documentElement.style.setProperty('--color4', savedColors.color4);
 
+// Open modal on Space key
 window.addEventListener('keydown', (event) => {
   if (event.code === 'Space') {
     modal.style.display = 'flex';
@@ -70,10 +73,8 @@ window.addEventListener('keydown', (event) => {
   }
 });
 
-// Variables to detect click outside the modal
+// Close modal when clicked outside
 let isClickingOutside = false;
-
-// Detect click outside modal for closing it
 window.addEventListener('mousedown', (event) => {
   if (!modal.contains(event.target)) {
     isClickingOutside = true;
@@ -83,29 +84,34 @@ window.addEventListener('mousedown', (event) => {
 window.addEventListener('mouseup', () => {
   if (isClickingOutside) {
     modal.style.display = 'none';
-    h1.innerText = newTextInput.value ;
-    setCookie("words", h1.innerText, 365); 
-    isClickingOutside = false;
+    h1.innerText = newTextInput.value;
+    setCookie("words", h1.innerText, 365); // Save new text in cookies
+    isClickingOutside = false; // Reset click flag
   }
 });
 
+// Reset to default values
 resetChanges.addEventListener('click', () => {
+  // Reset colors
   document.documentElement.style.setProperty('--color1', defaultColors.color1);
   document.documentElement.style.setProperty('--color2', defaultColors.color2);
   document.documentElement.style.setProperty('--color3', defaultColors.color3);
   document.documentElement.style.setProperty('--color4', defaultColors.color4);
 
+  // Reset input values
   color1Input.value = defaultColors.color1;
   color2Input.value = defaultColors.color2;
   color3Input.value = defaultColors.color3;
   color4Input.value = defaultColors.color4;
 
+  // Set cookies for reset
   setCookie("color1", defaultColors.color1, 365);
   setCookie("color2", defaultColors.color2, 365);
   setCookie("color3", defaultColors.color3, 365);
   setCookie("color4", defaultColors.color4, 365);
 });
 
+// Event listeners for color input changes
 color1Input.addEventListener("input", function () {
   document.documentElement.style.setProperty('--color1', this.value);
   setCookie("color1", this.value, 365);
@@ -123,6 +129,7 @@ color4Input.addEventListener("input", function () {
   setCookie("color4", this.value, 365);
 });
 
+// Close modal on clicking close button
 closeModal.addEventListener("click", function () {
   modal.style.display = 'none';
 });
