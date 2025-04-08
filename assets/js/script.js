@@ -45,6 +45,9 @@ const savedText = getCookie("words");
 if (savedText) {
   h1.innerText = savedText;
   h1.setAttribute("data-text", savedText);
+} else {
+  h1.innerText = "Press Space"; // Default text if no saved text in cookies
+  h1.setAttribute("data-text", "Press Space");
 }
 
 // Check and apply saved colors from cookies
