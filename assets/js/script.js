@@ -14,7 +14,6 @@ const color2Preview = document.getElementById("color2Preview");
 const color3Preview = document.getElementById("color3Preview");
 const color4Preview = document.getElementById("color4Preview");
 
-// Default color values for reset
 const defaultColors = {
   color1: "#ff00cc",
   color2: "#333399",
@@ -22,7 +21,6 @@ const defaultColors = {
   color4: "#00ffee"
 };
 
-// Set cookies
 function setCookie(name, value, days) {
   const d = new Date();
   d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -30,7 +28,6 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/";
 }
 
-// Get cookies
 function getCookie(name) {
   let nameEQ = name + "=";
   let ca = document.cookie.split(';');
@@ -67,11 +64,13 @@ if (savedColors.color2) document.documentElement.style.setProperty('--color2', s
 if (savedColors.color3) document.documentElement.style.setProperty('--color3', savedColors.color3);
 if (savedColors.color4) document.documentElement.style.setProperty('--color4', savedColors.color4);
 
-// Open modal on Space key
 window.addEventListener('keydown', (event) => {
   if (event.code === 'Space') {
     modal.style.display = 'flex';
     newTextInput.value = h1.innerText; // Set input field with current text
+  } else if (event.code === 'Escape' || event.code === 'Enter') {
+    modal.style.display = 'none'; // Close the modal on Escape or Enter
+    updateText(); // Update text and save to cookies
   }
 });
 
@@ -86,10 +85,22 @@ window.addEventListener('mousedown', (event) => {
 window.addEventListener('mouseup', () => {
   if (isClickingOutside) {
     modal.style.display = 'none';
-    h1.innerText = newTextInput.value;
-    setCookie("words", h1.innerText, 365); // Save new text in cookies
+    // Update text and save to cookies when modal is closed (outside click)
+    updateText();
     isClickingOutside = false; // Reset click flag
   }
+});
+
+// Update text and save to cookies
+function updateText() {
+  h1.innerText = newTextInput.value;
+  setCookie("words", h1.innerText, 365); // Save new text in cookies
+}
+
+// Close modal on clicking close button and update text
+closeModal.addEventListener("click", function () {
+  modal.style.display = 'none';
+  updateText(); // Update text when modal is closed using close button
 });
 
 // Reset to default values
@@ -131,7 +142,7 @@ color4Input.addEventListener("input", function () {
   setCookie("color4", this.value, 365);
 });
 
-// Close modal on clicking close button
-closeModal.addEventListener("click", function () {
-  modal.style.display = 'none';
+// Disable right-click menu 
+window.addEventListener('contextmenu', (event) => {
+  event.preventDefault(); // This prevents the default right-click menu
 });
