@@ -65,10 +65,11 @@ if (savedColors.color3) document.documentElement.style.setProperty('--color3', s
 if (savedColors.color4) document.documentElement.style.setProperty('--color4', savedColors.color4);
 
 window.addEventListener('keydown', (event) => {
-  if (event.code === 'Space') {
+  // Vérifier si le modal est déjà ouvert avant d'essayer de l'ouvrir à nouveau
+  if (event.code === 'Space' && modal.style.display !== 'flex') {
     modal.style.display = 'flex';
     newTextInput.value = h1.innerText; // Set input field with current text
-  } else if (event.code === 'Escape' || event.code === 'Enter') {
+  } else if ((event.code === 'Escape' || event.code === 'Enter') && modal.style.display === 'flex') {
     modal.style.display = 'none';
     updateText(); 
   }
