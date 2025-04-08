@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Just a simple Hello World</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/logo_full.png">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <h1 id="title" data-text="HELLO WORLD"></h1>
+
+  <!-- Modal -->
+  <div id="settingsModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h2>Settings Window</h2>
+      <label for="newTextInput">Change Text:</label>
+      <input type="text" id="newTextInput" placeholder="Enter new text..." />
+      
+      <label for="color1Input">Change Color 1 (Gradient Start):</label>
+      <div class="color-preview" id="color1Preview"></div>
+      <input type="color" id="color1Input" value="#ff00cc" />
+
+      <label for="color2Input">Change Color 2:</label>
+      <div class="color-preview" id="color2Preview"></div>
+      <input type="color" id="color2Input" value="#333399" />
+
+      <label for="color3Input">Change Color 3:</label>
+      <div class="color-preview" id="color3Preview"></div>
+      <input type="color" id="color3Input" value="#000000" />
+
+      <label for="color4Input">Change Color 4 (Gradient End):</label>
+      <div class="color-preview" id="color4Preview"></div>
+      <input type="color" id="color4Input" value="#00ffee" />
+      
+      <button id="resetChanges">Reset</button>
+    </div>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
