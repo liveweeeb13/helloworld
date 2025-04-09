@@ -53,14 +53,15 @@ h1 {
   color: #fff;
   padding: 40px;
   border-radius: 10px;
-  width: 80%;
+  width: 90%; 
   max-width: 600px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   position: relative;
-  height: 550px;
+  height: auto; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: auto;
 }
 
 .modal-content label {
@@ -72,7 +73,7 @@ h1 {
 .modal-content input {
   padding: 10px;
   font-size: 1rem;
-  width: calc(100% - 20px);
+  width: 100%; 
   border: 2px solid #444;
   border-radius: 5px;
   background-color: #333;
@@ -118,4 +119,29 @@ h1 {
   top: 10px;
   right: 10px;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%; 
+    padding: 15px;
+    font-size: 14px; 
+    max-width: none;
+  }
+
+  .modal-content input {
+    width: 100%;
+    font-size: 14px; 
+    padding: 12px;
+  }
+
+  .modal-content button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem; 
+  }
 }
