@@ -16,7 +16,4 @@ This website allows you to customize the displayed text and colors.
 
 ---
 
-## Limitation
-- This feature is not yet available on mobile and tablet.
-
 Thank you for using <u>A Just a Simple Hello World</u> !
