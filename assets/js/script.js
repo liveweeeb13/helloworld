@@ -104,4 +104,27 @@ document.addEventListener("DOMContentLoaded", function () {
       setCookie(color, this.value, 365);
     });
   });
+
+  // === 🖱️ DOUBLE CLICK PC ===
+  h1.addEventListener('dblclick', () => {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (!isMobile) {
+      window.open("https://github.com/liveweeeb13/helloworld", "_blank");
+    }
+  });
+
+  // === 📱 DOUBLE TAP MOBILE ===
+  let lastTap = 0;
+  h1.addEventListener('touchend', function () {
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+
+    if (tapLength < 300 && tapLength > 0) {
+      modal.style.display = 'flex';
+      newTextInput.value = h1.innerText;
+      console.log(`%cSettings window opened (double tap)`, 'color:rgb(116, 241, 104); font-size: 16px; font-weight: bold; background-color: #222; padding: 6px 12px;');
+    }
+
+    lastTap = currentTime;
+  });
 });
