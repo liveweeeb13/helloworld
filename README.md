@@ -1,4 +1,4 @@
-# README - A Just a Simple Hello World
+# README - Just a Simple Hello World
 
 This website allows you to customize the displayed text and colors.
 
